@@ -1,6 +1,6 @@
 package is.hi.hbv501g.team28.mid.Persistence.Entities;
 
-import is.hi.hbv501g.team28.mid.util.TaskCatergory;
+import is.hi.hbv501g.team28.mid.util.TaskCategory;
 import is.hi.hbv501g.team28.mid.util.TaskStatus;
 
 import java.util.Date;
@@ -12,7 +12,7 @@ public class Task {
     Date startDate;
     Date endDate;
     Date dueDate;
-    Enum<TaskCatergory> catergory;
+    Enum<TaskCategory> category;
     Enum<TaskStatus> status;
     long motherTaskID;
     User owner;
@@ -20,13 +20,13 @@ public class Task {
     public Task() {
     }
 
-    public Task(String name, Boolean priority, Date startDate, Date endDate, Date dueDate, Enum<TaskCatergory> catergory, Enum<TaskStatus> status, long motherTaskID, User owner) {
+    public Task(String name, Boolean priority, Date startDate, Date endDate, Date dueDate, Enum<TaskCategory> category, Enum<TaskStatus> status, long motherTaskID, User owner) {
         this.name = name;
         this.priority = priority;
         this.startDate = startDate;
         this.endDate = endDate;
         this.dueDate = dueDate;
-        this.catergory = catergory;
+        this.category = category;
         this.status = status;
         this.motherTaskID = motherTaskID;
         this.owner = owner;
@@ -81,12 +81,12 @@ public class Task {
         this.dueDate = dueDate;
     }
 
-    public Enum<TaskCatergory> getCatergory() {
-        return catergory;
+    public Enum<TaskCategory> getCatergory() {
+        return category;
     }
 
-    public void setCatergory(Enum<TaskCatergory> catergory) {
-        this.catergory = catergory;
+    public void setCatergory(Enum<TaskCategory> catergory) {
+        this.category = catergory;
     }
 
     public Enum<TaskStatus> getStatus() {

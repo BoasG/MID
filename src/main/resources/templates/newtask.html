@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create a new task</title>
+</head>
+<body>
+<form action="#" th:action="@{/addtask}" th:object="${task}" method="post">
+    <label for="name">Name</label>
+    <input type="text" th:field="*{name}" id="name" placeholder="New Task">
+    <span th:if="${fields.hasError('title')}" th:errors="*{title}"></span>
+    <label for="priority">Priority</label>
+    <input type="checkbox" th:field="*{priority}" id="priority">
+    <span th:if="${fields.hasError('priority')}" th:errors="*{priority}"></span>
+    <label for="startDate">Start Date</label>
+    <input type="datetime-local" th:field="*{startDate}" id="startDate">
+    <span th:if="${fields.hasError('startDate')}" th:errors="*{startDate}"></span>
+    <label for="dueDate">Due Date</label>
+    <input type="datetime-local" th:field="*{dueDate}" id="dueDate">
+    <span th:if="${fields.hasError('dueDate')}" th:errors="*{dueDate}"></span>
+    <div>
+        <label for="category">Task Category</label>
+        <select th:field="*{category}" id="category">
+            <option
+                th:each="category : ${allCategories}"
+                th:value="${category}"
+                th:text="${category}">
+            </option>
+        </select>
+    </div>
+    <span th:if="${fields.hasError('category')}" th:errors="*{category}"></span>
+    <label for="motherTaskID">Mother Task</label>
+    <input type="number" th:field="*{motherTaskID}" id="motherTaskID">
+    <input type="submit" value="Add Task">
+
+
+</form>
+
+</body>
+</html>
