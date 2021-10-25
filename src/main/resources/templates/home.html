@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MID</title>
+</head>
+<body>
+
+<div th:switch="${tasks}">
+    <h2 th:case="null">No Tasks Yet!</h2>
+    <div th:case="*">
+        <h2>Tasks</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="task: ${tasks}">
+                <td th:text="${task.name}"></td>
+                <td><a th:href="@{/delete/{id}(id=${task.ID})}">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>
